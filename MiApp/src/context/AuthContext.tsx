@@ -9,7 +9,7 @@ type AuthContextType = {
 };
 
 // 2. Creación del contexto
-const AuthContext = createContext<AuthContextType | null>(null);
+const AuthContext = createContext(null as AuthContextType | null);
 
 // 4. Hook personalizado para consumir el contexto
 export const useAuth = () => {
@@ -19,17 +19,15 @@ export const useAuth = () => {
 };
 
 // 3. Provider: maneja el estado global de autenticación y rol
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+export const AuthProvider = ({ children }: { children: any }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [role, setRole] = useState<string | null>(null);
+  const [role, setRole] = useState(null as string | null);
 
-  // Guarda el rol seleccionado y marca sesión como iniciada
   const login = (selectedRole: string) => {
     setRole(selectedRole);
     setIsLoggedIn(true);
   };
 
-  // Limpia el estado al cerrar sesión
   const logout = () => {
     setRole(null);
     setIsLoggedIn(false);
