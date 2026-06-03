@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import StackNavigator from "./src/navigation/StackNavigator";
-import { AuthProvider } from "./src/contexts/AuthContext";
+import { AuthProvider } from "./src/context/AuthContext";
 
 export default function App() {
   return (
@@ -11,12 +11,3 @@ export default function App() {
     </AuthProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
