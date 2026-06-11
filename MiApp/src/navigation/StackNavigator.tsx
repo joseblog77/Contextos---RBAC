@@ -12,11 +12,11 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function StackNavigator() {
-  const { isLoggedIn } = useAuth();
+  const { user } = useAuth();
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {!isLoggedIn ? (
+      {!user ? (
         <Stack.Screen name="Login" component={LoginScreen} />
       ) : (
         <Stack.Screen name="MainTabs" component={TabsNavigator} />
